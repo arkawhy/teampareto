@@ -142,13 +142,18 @@ a:visited {
     <script>
         // JavaScript to toggle the visibility of the event descriptions
         function toggleTab(eventId) {
-            var content = document.getElementById(eventId);
+            // Get all the dropdown content divs
+            var allContents = document.querySelectorAll('.tab-content');
+            
+            // Close all dropdowns by setting display to 'none'
+            allContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
 
-            // Toggle the display of the event content
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block"; // Show the content
-            } else {
-                content.style.display = "none"; // Hide the content
+            // Show the selected dropdown
+            var selectedContent = document.getElementById(eventId);
+            if (selectedContent.style.display === "none" || selectedContent.style.display === "") {
+                selectedContent.style.display = "block";  // Show the selected content
             }
         }
     </script>
