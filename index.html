@@ -73,16 +73,17 @@ a:visited {
                 transform: translateX(-100%); /* End off-screen to the left */
             }
         }
+         /* Centering the tab buttons container */
         .tabs {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;  /* Horizontally center the buttons */
             margin-bottom: 20px;
         }
 
         /* Styling for each tab button */
         .tab-button {
             padding: 10px 20px;
-            margin: 0 5px;
+            margin: 0 10px;  /* Add some spacing between the buttons */
             cursor: pointer;
             background-color: #4CAF50;
             color: white;
@@ -114,13 +115,12 @@ a:visited {
     <div class="marquee-container">
         <div class="marquee-text"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
     </div>
-        <!-- Tabs Section -->
+         <!-- Tabs Section (Centered) -->
     <div class="tabs">
         <button class="tab-button" onclick="toggleTab('event1')">Event 1</button>
         <button class="tab-button" onclick="toggleTab('event2')">Event 2</button>
         <button class="tab-button" onclick="toggleTab('event3')">Event 3</button>
     </div>
-
     <!-- Event 1 Dropdown -->
     <div id="event1" class="tab-content">
         <h3>Event 1: Tech Talk</h3>
