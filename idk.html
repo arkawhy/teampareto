@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pareto Club Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .member {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .member img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .member-info {
+            display: inline-block;
+            text-align: left;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Pareto Club Members</h1>
+    <input type="text" id="search" placeholder="Search by name..." onkeyup="filterMembers()">
+    <div id="members">
+        <div class="member">
+            <img src="profile1.jpg" alt="Profile 1">
+            <div class="member-info">
+                <strong>Sweta Sen</strong><br>
+                <a href="https://www.linkedin.com/in/sweta-sen" target="_blank">View Profile</a>
+            </div>
+        </div>
+        <div class="member">
+            <img src="profile2.jpg" alt="Profile 2">
+            <div class="member-info">
+                <strong>Aditya Rao</strong><br>
+                <a href="https://www.linkedin.com/in/aditya-rao" target="_blank">View Profile</a>
+            </div>
+        </div>
+        <!-- Add more members as needed -->
+    </div>
+</div>
+
+<script>
+    function filterMembers() {
+        var input, filter, members, member, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        members = document.getElementById("members").getElementsByClassName("member");
+
+        for (var i = 0; i < members.length; i++) {
+            member = members[i];
+            txtValue = member.textContent || member.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                member.style.display = "";
+            } else {
+                member.style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
