@@ -129,22 +129,40 @@ a:visited {
     </div>
 
     <script>
-        // JavaScript to toggle the visibility of the event descriptions
-        function toggleTab(eventId) {
-            // Get all the dropdown content divs
-            var allContents = document.querySelectorAll('.tab-content');
-            
-            // Close all dropdowns by setting display to 'none'
-            allContents.forEach(function(content) {
-                content.style.display = 'none';
-            });
+        let openTabId = null;
 
-            // Show the selected dropdown
-            var selectedContent = document.getElementById(eventId);
-            if (selectedContent.style.display === "none" || selectedContent.style.display === "") {
-                selectedContent.style.display = "block";  // Show the selected content
-            }
-        }
+    function toggleTab(eventId) {
+      const content = document.getElementById(eventId);
+
+      // Close currently open tab if same button is clicked again
+      if (openTabId === eventId) {
+        content.style.display = 'none';
+        openTabId = null;
+        return;
+      }
+
+      // Close all other tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.style.display = 'none';
+      });
+
+      // Open the selected one
+      content.style.display = 'block';
+      openTabId = eventId;
+    }
+
+    // Close tab if clicked outside
+    window.addEventListener('click', function(e) {
+      const isButton = e.target.classList.contains('tab-button');
+      const isContent = e.target.closest('.tab-content');
+
+      if (!isButton && !isContent) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+          tab.style.display = 'none';
+        });
+        openTabId = null;
+      }
+    });
     </script>
   <img src="Pareto Logo Round.png" alt="Pareto Logo Round" width="200">
   <p>Pareto is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
