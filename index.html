@@ -48,11 +48,35 @@ a:active {
 a:visited {
     color: #6a5acd; /* Purple color for visited links */
 }
+.marquee-container {
+            width: 100%; 
+            overflow: hidden; /* Hide text outside the container */
+            background-color: #f0f0f0; /* Optional background */
+            padding: 10px 0;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap; /* Prevent text from wrapping to a new line */
+            animation: marquee 10s linear infinite; /* Animation properties */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%); /* Start off-screen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* End off-screen to the left */
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="marquee-container">
+        <div class="marquee-text"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
+    </div>
   <img src="Pareto Logo Round.png" alt="Pareto Logo Round" width="200">
-  <p>We are a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
+  <p>Pareto is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
   <p>Meet the 2024 team here!</p>
   <ul>
     <li><a href="https://www.linkedin.com/in/arkadaseconomics" target="_blank"><b>Arka Das</b>, Founder and Head</a></li>
