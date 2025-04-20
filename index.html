@@ -69,12 +69,85 @@ a:visited {
                 transform: translateX(-100%); /* End off-screen to the left */
             }
         }
+        .tabs {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for each tab button */
+        .tab-button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tab-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Dropdown content initially hidden */
+        .tab-content {
+            display: none;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .tab-content p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
     <div class="marquee-container">
         <div class="marquee-text"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
     </div>
+        <!-- Tabs Section -->
+    <div class="tabs">
+        <button class="tab-button" onclick="toggleTab('event1')">Event 1</button>
+        <button class="tab-button" onclick="toggleTab('event2')">Event 2</button>
+        <button class="tab-button" onclick="toggleTab('event3')">Event 3</button>
+    </div>
+
+    <!-- Event 1 Dropdown -->
+    <div id="event1" class="tab-content">
+        <h3>Event 1: Tech Talk</h3>
+        <p>Join us for a tech talk where we discuss the latest in AI and Machine Learning. This event will feature expert speakers and networking opportunities.</p>
+    </div>
+
+    <!-- Event 2 Dropdown -->
+    <div id="event2" class="tab-content">
+        <h3>Event 2: Hackathon</h3>
+        <p>Participate in our hackathon event! Teams will compete to create the best software solutions in just 24 hours. Great prizes await the winners!</p>
+    </div>
+
+    <!-- Event 3 Dropdown -->
+    <div id="event3" class="tab-content">
+        <h3>Event 3: Workshop</h3>
+        <p>Our hands-on workshop will help you build a portfolio website. Bring your laptop, and we'll guide you through creating your own personal website from scratch!</p>
+    </div>
+
+    <script>
+        // JavaScript to toggle the visibility of the event descriptions
+        function toggleTab(eventId) {
+            var content = document.getElementById(eventId);
+
+            // Toggle the display of the event content
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block"; // Show the content
+            } else {
+                content.style.display = "none"; // Hide the content
+            }
+        }
+    </script>
   <img src="Pareto Logo Round.png" alt="Pareto Logo Round" width="200">
   <p>Pareto is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
   <p>Meet the 2024 team here!</p>
