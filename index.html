@@ -28,6 +28,28 @@
             font-size: 18px;
             color: #000000;
         }
+        a {
+    text-decoration: none; /* Remove the underline */
+    color: #333; /* Set the default link color (dark gray or any color you like) */
+    font-weight: 500; /* Make the link a bit bolder */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+
+/* Hover effect for links */
+a:hover {
+    color: #FF6347; /* Change the link color when hovered (you can choose any color you like) */
+    transform: scale(1.05); /* Slightly enlarge the link when hovered */
+}
+
+/* Active state (when a link is clicked) */
+a:active {
+    color: #FF4500; /* Change color when the link is clicked */
+}
+
+/* Visited links style (optional) */
+a:visited {
+    color: #6a5acd; /* Purple color for visited links */
+}
     </style>
 </head>
 <body>
