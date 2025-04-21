@@ -212,48 +212,191 @@ a:visited {
         openTabId = null;
       }
     });
+    const bios = {
+  arka: {
+    name: "Arka Das",
+    role: "Founder and Head",
+    bio: "Arka leads with wit and wisdom. Runs on caffeine and curiosity."
+  },
+  srijani: {
+    name: "Srijani Roychowdhury",
+    role: "Founder and Head",
+    bio: "Keeps Pareto sane. Probably solving three problems while you read this."
+  },
+  veeshaka: {
+    name: "Veeshaka Thakur",
+    role: "Outreach Core",
+    bio: "Always on the move. Outreach ninja and energy powerhouse."
+  },
+  arun: {
+    name: "Arun Kumar JAK",
+    role: "Finance Core",
+    bio: "Balances the books and the vibe. Could probably budget a rocket launch."
+  },
+  abhinov: {
+    name: "Abhinov Kumar Keshri",
+    role: "Finance Core",
+    bio: "Sharp numbers guy. Brings clarity and calm to chaos."
+  },
+  khushbu: {
+    name: "Khushbu Verma",
+    role: "Logistics Core",
+    bio: "Makes things happen while everyone else is still planning."
+  },
+  maitreya: {
+    name: "Maitreya Gaikwad",
+    role: "Outreach Co-ordinator",
+    bio: "Reaches everyone, everywhere, all at once. Outreach wizard."
+  },
+  riya: {
+    name: "Riya Mondal",
+    role: "Outreach Co-ordinator",
+    bio: "A storyteller and a doer. Gets things done with style."
+  },
+  ananya: {
+    name: "Ananya Tawra",
+    role: "Logistics Co-ordinator",
+    bio: "If it’s organized, it’s Ananya. Master of the masterplan."
+  },
+  ishika: {
+    name: "Ishika Tyagi",
+    role: "Logistics Co-ordinator",
+    bio: "Efficient, sharp, and always on time. She’s the glue."
+  },
+  tannu: {
+    name: "Kumari Tannu",
+    role: "Logistics Co-ordinator",
+    bio: "Handles everything from spreadsheets to sprinting across campus."
+  }
+};
+
+function openModal(key) {
+  const person = bios[key];
+  if (person) {
+    document.getElementById("modal-name").textContent = person.name;
+    document.getElementById("modal-role").textContent = person.role;
+    document.getElementById("modal-bio").textContent = person.bio;
+    document.getElementById("modal").style.display = "block";
+  }
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
     </script>
   <img src="Pareto Logo Round.png" alt="Pareto Logo Round" width="200">
   <p>Pareto is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
-  <h2 style="text-align:center;">Meet the Team</h2>
+ <h2 style="text-align:center;">Meet the Team</h2>
+<div class="team-grid">
 
-<div class="team-section">
-  <div class="team-group">
-    <h3>Founders and Heads</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/arkadaseconomics" target="_blank"><b>Arka Das</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/srijani-roychowdhury-0314a21a7" target="_blank"><b>Srijani Roychowdhury</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-    </ul>
+  <div class="team-card" onclick="openModal('arka')">
+    <img src="images/arka.jpg" alt="Arka Das">
+    <h4>Arka Das</h4>
+    <p>Founder and Head</p>
+    <a href="https://www.linkedin.com/in/arkadaseconomics" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
   </div>
 
-  <div class="team-group">
-    <h3>Outreach Core</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/veeshaka-thakur-379468222" target="_blank"><b>Veeshaka Thakur</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/maitreya-gaikwad-5037a3179" target="_blank"><b>Maitreya Gaikwad</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/riya-mondal-084b7b257" target="_blank"><b>Riya Mondal</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-    </ul>
+  <div class="team-card" onclick="openModal('srijani')">
+    <img src="images/srijani.jpg" alt="Srijani Roychowdhury">
+    <h4>Srijani Roychowdhury</h4>
+    <p>Founder and Head</p>
+    <a href="https://www.linkedin.com/in/srijani-roy-chowdhury-0314a21a7" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
   </div>
 
-  <div class="team-group">
-    <h3>Finance Core</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/arun-kumar-j-a-2a8575138" target="_blank"><b>Arun Kumar JA</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/abhinov-kumar-keshri-ab7202171" target="_blank"><b>Abhinov Kumar Keshri</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-    </ul>
+  <div class="team-card" onclick="openModal('veeshaka')">
+    <img src="images/veeshaka.jpg" alt="Veeshaka Thakur">
+    <h4>Veeshaka Thakur</h4>
+    <p>Outreach Core</p>
+    <a href="https://www.linkedin.com/in/veeshaka-thakur-379468222/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
   </div>
 
-  <div class="team-group">
-    <h3>Logistics Core</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/khushbu-verma-8783151b7" target="_blank"><b>Khushbu Verma</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/ananya-tawra-984b48333" target="_blank"><b>Ananya Tawra</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/ishika-t-2a9889025" target="_blank"><b>Ishika Tyagi</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-      <li><a href="https://www.linkedin.com/in/kumari-tannu-72952bb6" target="_blank"><b>Kumari Tannu</b> <img src="linkedin.png" alt="LinkedIn"></a></li>
-    </ul>
+  <div class="team-card" onclick="openModal('arun')">
+    <img src="images/arun.jpg" alt="Arun Kumar JAK">
+    <h4>Arun Kumar JA</h4>
+    <p>Finance Core</p>
+    <a href="https://www.linkedin.com/in/arun-kumar-j-a-2a8575138/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('abhinov')">
+    <img src="images/abhinov.jpg" alt="Abhinov Kumar Keshri">
+    <h4>Abhinov Kumar Keshri</h4>
+    <p>Finance Core</p>
+    <a href="https://www.linkedin.com/in/abhinov-kumar-keshri-ab270217/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('khushbu')">
+    <img src="images/khushbu.jpg" alt="Khushbu Verma">
+    <h4>Khushbu Verma</h4>
+    <p>Logistics Core</p>
+    <a href="https://www.linkedin.com/in/khushbu-verma-8783151b7/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('maitreya')">
+    <img src="images/maitreya.jpg" alt="Maitreya Gaikwad">
+    <h4>Maitreya Gaikwad</h4>
+    <p>Outreach Co-ordinator</p>
+    <a href="https://www.linkedin.com/in/maitreya-gaikwad-5037a3179/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('riya')">
+    <img src="images/riya.jpg" alt="Riya Mondal">
+    <h4>Riya Mondal</h4>
+    <p>Outreach Co-ordinator</p>
+    <a href="https://www.linkedin.com/in/riya-mondal-084b7b257/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('ananya')">
+    <img src="images/ananya.jpg" alt="Ananya Tawra">
+    <h4>Ananya Tawra</h4>
+    <p>Logistics Co-ordinator</p>
+    <a href="https://www.linkedin.com/in/ananya-tawra-984b483333/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('ishika')">
+    <img src="images/ishika.jpg" alt="Ishika Tyagi">
+    <h4>Ishika Tyagi</h4>
+    <p>Logistics Co-ordinator</p>
+    <a href="https://www.linkedin.com/in/ishika-t-2a9889025/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+  <div class="team-card" onclick="openModal('tannu')">
+    <img src="images/tannu.jpg" alt="Kumari Tannu">
+    <h4>Kumari Tannu</h4>
+    <p>Logistics Co-ordinator</p>
+    <a href="https://www.linkedin.com/in/kumari-tannu-72952bb6/" target="_blank">
+      <img src="linkedin.png" alt="LinkedIn">
+    </a>
+  </div>
+
+</div>
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-name">Name</h2>
+    <p id="modal-role">Role</p>
+    <p id="modal-bio">Bio</p>
   </div>
 </div>
-
   <footer>
     <p1>Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.</p1>
   </footer>
