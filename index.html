@@ -8,14 +8,6 @@
     <style>
         /* Set the background color to off-white */
         
-background-image: url('doodle-bg.png');
-  background-repeat: repeat;
-  background-size: contain;
-  background-attachment: fixed;
-  font-family: 'Orbitron', sans-serif;
-  color: #fff;
-  margin: 0;
-  padding: 0;
         body {
             <div class="logo">
   <img src="pareto-logo.png" alt="Pareto Logo">
@@ -99,55 +91,69 @@ a:visited {
             margin-bottom: 20px;
         }
 
-        .cyber-event-tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 60%;
-  margin: 50px auto;
-  font-family: 'Orbitron', sans-serif;
-}
+        . body {
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: 'Orbitron', sans-serif;
+    }
 
-.cyber-tab {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Gradient background */
-  color: white;
-  border: none;
-  border-radius: 15px;
-  padding: 25px 20px;
-  text-align: center;
-  position: relative;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.cyber-tab .title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
 
-.cyber-tab .hover-info {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-  margin-top: 10px;
-  font-size: 0.95rem;
-  color: #f0f0f0;
-}
+    .cyber-event-tabs {
+      display: flex;
+      gap: 20px;
+    }
 
-.cyber-tab:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(142, 148, 251, 0.5); /* Soft glow effect */
-}
+    .cyber-tab {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 25px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.cyber-tab:hover .hover-info {
-  opacity: 1;
-  max-height: 200px;
-}
+    .cyber-tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(142, 148, 251, 0.5);
+    }
+
+    .cyber-tab .hover-info {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 15px 15px;
+      font-size: 0.9rem;
+    }
+
+    .cyber-tab:hover .hover-info {
+      display: block;
+    }
 
 .team-grid {
     display: grid;
@@ -220,15 +226,21 @@ a:visited {
     <div class="marquee-container">
         <div class="marquee-text"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
     </div>
+    <div class="header">
+    <div class="logo">
+      <img src="images/pareto-logo.png" alt="Pareto Logo">
+    </div>
+
     <div class="cyber-event-tabs">
-  <div class="cyber-tab">
-    <span class="title">Pareto Summit 2025</span>
-    <div class="hover-info">The first edition of Pareto Summit kicked off with a G20 FMCBG committee simulation across 15th and 16th March, 2025 at the IIT Madras campus, with delegations from institutions across three states deliberating upon the stringent economic issues of today</div>
-  </div>
-  <div class="cyber-tab">
-    <span class="title">Equilibria</span>
-    <div class="hover-info">An online nation-wide case study competition centered on economics, business, finance, analytics, and mathematics, Equilibria saw hundreds of academics from reputed institutions across the country participate in an event co-hosted by Pareto and the Economics Club, IISER Bhopal</div>
-  </div>
+      <div class="cyber-tab">
+        Pareto Summit 2025
+        <div class="hover-info">The first edition of Pareto Summit kicked off with a G20 FMCBG committee simulation across 15th and 16th March, 2025 at the IIT Madras campus, with delegations from institutions across three states deliberating upon the stringent economic issues of today</div>
+      </div>
+      <div class="cyber-tab">
+        Equilibria 2025
+        <div class="hover-info">An online nation-wide case study competition centered on economics, business, finance, analytics, and mathematics, Equilibria saw hundreds of academics from reputed institutions across the country participate in an event co-hosted by Pareto and the Economics Club, IISER Bhopal</div>
+      </div>
+    </div>
   </div>
     <script>
         let openTabId = null;
