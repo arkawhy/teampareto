@@ -112,23 +112,43 @@ a:active {
       gap: 20px;
     }
 
-    .event-tab {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  margin: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .cyber-tab {
+      background: linear-gradient(135deg, #e7e3e3, #8a8989);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 25px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.event-tab:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .cyber-tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(142, 148, 251, 0.5);
+    }
+
+    .cyber-tab .hover-info {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 15px 15px;
+      font-size: 0.9rem;
+    }
+
+    .cyber-tab:hover .hover-info {
+      display: block;
+    }
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
