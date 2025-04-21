@@ -6,187 +6,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pareto Club at IIT Madras</title>
     <style>
-       body {
-  margin: 0;
-  background-color: #f9f9f9;
-  font-family: 'Orbitron', sans-serif;
-  color: #222;
+        /* Set the background color to off-white */
+        
+        body {
+            
+            background-color: #e7e3e3; /* Light Off-white */
+            font-family: 'Roboto', 'Helvetica', sans-serif;
+            margin: 1;
+            padding: 0;
+            text-align: center;
+            
+        }
+        p {
+            font-size: 24px;
+            margin: 1;
+            color: #555; /* Slightly lighter text color */
+        }
+        p1{
+            font-size: 12px;
+        }
+        a{
+            font-size: 18px;
+            color: #000000;
+        }
+                a {
+    text-decoration: none; /* Remove the underline */
+    color: #333; /* Set the default link color (dark gray or any color you like) */
+    font-weight: 500; /* Make the link a bit bolder */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
 }
-
-/* === HEADER & LOGO === */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 50px;
-  background: linear-gradient(to right, #ffffff, #f3f3f3);
-  border-bottom: 2px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
 }
 
 .logo img {
   height: 60px;
   width: auto;
 }
+/* Hover effect for links */
+a:hover {
+    color: #FF6347; /* Change the link color when hovered (you can choose any color you like) */
+    transform: scale(1.05); /* Slightly enlarge the link when hovered */
+}
 
-/* === MARQUEE BANNER === */
+/* Active state (when a link is clicked) */
+a:active {
+    color: #FF4500; /* Change color when the link is clicked */
+}
+
+/* Visited links style (optional) */
+a:visited {
+    color: #6a5acd; /* Purple color for visited links */
+}
 .marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  background: linear-gradient(to right, #0072ff, #00c6ff);
-  padding: 12px 0;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  z-index: 100;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+            width: 100%; 
+            overflow: hidden; /* Hide text outside the container */
+            background-color: #f0f0f0; /* Optional background */
+            padding: 10px 0;
+        }
 
-.marquee {
-  display: inline-block;
-  padding-left: 100%;
-  animation: scroll-left 15s linear infinite;
-}
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap; /* Prevent text from wrapping to a new line */
+            animation: marquee 10s linear infinite; /* Animation properties */
+        }
 
-@keyframes scroll-left {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%); /* Start off-screen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* End off-screen to the left */
+            }
+        }
+         /* Centering the tab buttons container */
+        .tabs {
+            display: flex;
+            justify-content: center;  /* Horizontally center the buttons */
+            margin-bottom: 20px;
+        }
 
-/* === INTRO TEXT SECTION === */
-.intro-text {
-  font-size: 1.2rem;
-  color: #333;
-  padding: 30px 40px;
-  text-align: center;
-  background: linear-gradient(to right, #ffffff, #f4f4f4);
-  border-radius: 16px;
-  margin: 30px auto;
-  width: 90%;
-  max-width: 1000px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
+        . body {
+      margin: 0;
+      background-color: #e7e3e3;
+      font-family: 'Orbitron', sans-serif;
+    }
 
-.intro-text a {
-  color: #0072ff;
-  text-decoration: none;
-  font-weight: 600;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.intro-text a:hover {
-  text-decoration: underline;
-}
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
 
-/* === EVENT TABS SECTION === */
-.tab-ribbon {
-  background: linear-gradient(to right, #f0f0f0, #fafafa);
-  padding: 20px;
-  text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin: 30px auto;
-  max-width: 90%;
-}
+    .cyber-event-tabs {
+      display: flex;
+      gap: 20px;
+    }
 
-.event-tab {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  margin: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    .cyber-tab {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 25px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.event-tab:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
-}
+    .cyber-tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(142, 148, 251, 0.5);
+    }
 
-/* === TEAM MEMBER CARDS === */
+    .cyber-tab .hover-info {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 15px 15px;
+      font-size: 0.9rem;
+    }
+
+    .cyber-tab:hover .hover-info {
+      display: block;
+    }
+
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    text-align: center;
+  }
 
-.team-card {
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-  height: 330px;
-}
+  .team-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 270px;
+  }
 
-.team-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+  .team-card:hover {
+    height: 320px;
+  }
 
-.team-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
+  .team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
 
-.team-card h4 {
-  margin: 10px 0 5px;
-  font-size: 1.1rem;
-}
+  .team-card h4 {
+    margin: 10px 0 4px;
+  }
 
-.team-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #666;
-}
+  .team-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+  }
 
-.team-card .bio {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-  font-size: 0.85rem;
-  margin-top: 12px;
-  color: #444;
-}
+  .bio {
+    opacity: 0;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+    transition: opacity 0.3s ease;
+    height: 0;
+  }
 
-.team-card:hover .bio {
-  opacity: 1;
-  max-height: 100px;
-}
+  .team-card:hover .bio {
+    opacity: 1;
+    height: auto;
+  }
 
-.team-card a img {
-  height: 24px;
-  margin-top: 10px;
-  transition: transform 0.2s ease;
-}
+  .team-card a img {
+    width: 24px;
+    height: 24px;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+  }
 
-.team-card a img:hover {
-  transform: scale(1.1);
-}
-
-/* === FOOTER === */
-footer {
-  margin-top: 50px;
-  font-size: 12px;
-  color: #888;
-  padding-bottom: 20px;
-  text-align: center;
-}
+  .team-card a img:hover {
+    transform: scale(1.1);
+  }
     </style>
 </head>
 <body>
