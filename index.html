@@ -111,132 +111,70 @@ a:visited {
   padding: 0 20px;
 }
 
-.team-group {
-  margin-bottom: 30px;
-}
-
-.team-group h3 {
-  color: #333;
-  border-left: 5px solid #007bff;
-  padding-left: 10px;
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.team-group ul {
-  list-style: none;
-  padding: 0;
-}
-
-.team-group li {
-  margin: 10px 0;
-}
-
-.team-group a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  background: #f8f9fa;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: 0.3s ease;
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.team-group a:hover {
-  background: #e0f0ff;
-  transform: translateY(-2px);
-  color: #007bff;
-}
-
-.team-group img {
-  height: 20px;
-  margin-left: 10px;
-}
- .team-grid {
+.team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
   }
 
   .team-card {
     background-color: white;
     border-radius: 12px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 270px;
   }
 
   .team-card:hover {
-    transform: translateY(-5px);
+    height: 320px;
   }
 
   .team-card img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
   }
 
   .team-card h4 {
-    margin: 8px 0 5px;
+    margin: 10px 0 4px;
   }
 
   .team-card p {
     margin: 0;
     font-size: 0.9rem;
+    color: #444;
+  }
+
+  .bio {
+    opacity: 0;
+    margin-top: 10px;
+    font-size: 0.85rem;
     color: #666;
+    transition: opacity 0.3s ease;
+    height: 0;
+  }
+
+  .team-card:hover .bio {
+    opacity: 1;
+    height: auto;
   }
 
   .team-card a img {
     width: 24px;
     height: 24px;
-    margin-top: 8px;
+    margin-top: 10px;
     transition: transform 0.2s ease;
   }
 
   .team-card a img:hover {
     transform: scale(1.1);
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.6);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal-content {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-  }
-
-  .modal-content h2 {
-    margin-bottom: 8px;
-  }
-
-  .modal-content p {
-    margin-bottom: 0;
-  }
-
-  .close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 22px;
-    cursor: pointer;
   }
     </style>
 </head>
@@ -372,105 +310,94 @@ function closeModal() {
   <p>Pareto is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
  <h2 style="text-align:center;">Meet the Team</h2>
 <div class="team-grid">
-
-  <div class="team-card" onclick="openModal('arka')">
+  <div class="team-card">
     <img src="arka.jpg" alt="Arka Das">
     <h4>Arka Das</h4>
     <p>Founder and Head</p>
-    <a href="https://www.linkedin.com/in/arkadaseconomics" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Leads everything Pareto. Big on econ, philosophy, and analysis.</div>
+    <a href="https://www.linkedin.com/in/arkadaseconomics" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('srijani')">
+  <div class="team-card">
     <img src="srijani.jpg" alt="Srijani Roychowdhury">
     <h4>Srijani Roychowdhury</h4>
     <p>Founder and Head</p>
-    <a href="https://www.linkedin.com/in/srijani-roy-chowdhury-0314a21a7" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Co-founder. Passionate about social theory, writing, and people dynamics.</div>
+    <a href="https://www.linkedin.com/in/srijani-roy-chowdhury-0314a21a7" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('veeshaka')">
+  <div class="team-card">
     <img src="veeshaka.jpg" alt="Veeshaka Thakur">
     <h4>Veeshaka Thakur</h4>
     <p>Outreach Core</p>
-    <a href="https://www.linkedin.com/in/veeshaka-thakur-379468222/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">People person. Works on collaborations and partnerships for the club.</div>
+    <a href="https://www.linkedin.com/in/veeshaka-thakur-379468222/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('arun')">
+  <div class="team-card">
     <img src="arun.jpg" alt="Arun Kumar JAK">
-    <h4>Arun Kumar JA</h4>
+    <h4>Arun Kumar JAK</h4>
     <p>Finance Core</p>
-    <a href="https://www.linkedin.com/in/arun-kumar-j-a-2a8575138/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Handles all things numbers — budgeting, funds, and logistics.</div>
+    <a href="https://www.linkedin.com/in/arun-kumar-j-a-2a8575138/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('abhinov')">
+  <div class="team-card">
     <img src="abhinov.jpg" alt="Abhinov Kumar Keshri">
-    <h4>Abhinov Kumar Keshri</h4>
+    <h4>Abhinov Keshri</h4>
     <p>Finance Core</p>
-    <a href="https://www.linkedin.com/in/abhinov-kumar-keshri-ab270217/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Crunches data and makes sure our events are financially sound.</div>
+    <a href="https://www.linkedin.com/in/abhinov-kumar-keshri-ab2702171/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('khushbu')">
+  <div class="team-card">
     <img src="khushbu.jpg" alt="Khushbu Verma">
     <h4>Khushbu Verma</h4>
     <p>Logistics Core</p>
-    <a href="https://www.linkedin.com/in/khushbu-verma-8783151b7/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Ensures everything runs smoothly behind the scenes.</div>
+    <a href="https://www.linkedin.com/in/khushbu-verma-8783151b7/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('maitreya')">
+  <div class="team-card">
     <img src="maitreya.jpg" alt="Maitreya Gaikwad">
     <h4>Maitreya Gaikwad</h4>
     <p>Outreach Co-ordinator</p>
-    <a href="https://www.linkedin.com/in/maitreya-gaikwad-5037a3179/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Coordinates with external orgs and manages outreach strategies.</div>
+    <a href="https://www.linkedin.com/in/maitreya-gaikwad-5037a3179/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('riya')">
+  <div class="team-card">
     <img src="riya.jpg" alt="Riya Mondal">
     <h4>Riya Mondal</h4>
     <p>Outreach Co-ordinator</p>
-    <a href="https://www.linkedin.com/in/riya-mondal-084b7b257/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Helps spread the word. Good at talking to anyone, anywhere.</div>
+    <a href="https://www.linkedin.com/in/riya-mondal-084b7b257/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('ananya')">
-    <img src="ananya.jpg" alt="Ananya Tawra">
-    <h4>Ananya Tawra</h4>
+  <div class="team-card">
+    <img src="ananya.jpg" alt="Ananya Tawrā">
+    <h4>Ananya Tawrā</h4>
     <p>Logistics Co-ordinator</p>
-    <a href="https://www.linkedin.com/in/ananya-tawra-984b483333/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Coordinates logistics — venues, materials, and execution.</div>
+    <a href="https://www.linkedin.com/in/ananya-tawra-984b483333/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('ishika')">
+  <div class="team-card">
     <img src="ishika.jpg" alt="Ishika Tyagi">
     <h4>Ishika Tyagi</h4>
     <p>Logistics Co-ordinator</p>
-    <a href="https://www.linkedin.com/in/ishika-t-2a9889025/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Manages on-ground logistics for events with serious calm.</div>
+    <a href="https://www.linkedin.com/in/ishika-t-2a9889025/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
 
-  <div class="team-card" onclick="openModal('tannu')">
+  <div class="team-card">
     <img src="tannu.jpg" alt="Kumari Tannu">
     <h4>Kumari Tannu</h4>
     <p>Logistics Co-ordinator</p>
-    <a href="https://www.linkedin.com/in/kumari-tannu-72952bb6/" target="_blank">
-      <img src="linkedin.png" alt="LinkedIn">
-    </a>
+    <div class="bio">Helps juggle the chaos during peak event time with a smile.</div>
+    <a href="https://www.linkedin.com/in/kumari-tannu-72952bb6/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
   </div>
+</div>
 
 </div>
 <div id="modal" class="modal" onclick="closeModal()">
