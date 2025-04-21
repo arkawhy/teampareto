@@ -8,6 +8,9 @@
     <style>
         /* Set the background color to off-white */
         body {
+            <div class="logo">
+  <img src="pareto-logo.png" alt="Pareto Logo">
+</div>
             background-color: #eae2e0; /* Light Off-white */
             font-family: 'Roboto', 'Helvetica', sans-serif;
             margin: 1;
@@ -32,6 +35,17 @@
     color: #333; /* Set the default link color (dark gray or any color you like) */
     font-weight: 500; /* Make the link a bit bolder */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+}
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
 }
 background-image: url('doodle-bg.png');
   background-repeat: repeat;
