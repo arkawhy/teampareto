@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pareto, Economics Club at IIT Madras</title>
+    <title>Pareto, Club at IIT Madras</title>
     <style>
         /* Set the background color to off-white */
         
@@ -35,70 +35,17 @@
     font-weight: 500; /* Make the link a bit bolder */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
 }
- .section {
-      padding: 60px 20px;
-    }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
 
-    .intro-text {
-      background: #ffffff;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    .intro-text b {
-      color: #0072ff;
-    }
-
-}    /* ==== GENERAL RESET AND BODY ==== */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      font-family: 'Poppins', sans-serif;
-      color: #222;
-    }
-
-    /* ==== HEADER: LOGO + MARQUEE ==== */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .logo img {
-      height: 60px; /* keep consistent height, auto width */
-      padding: 5px;
-    }
-
-    .marquee-container {
-      overflow: hidden;
-      white-space: nowrap;
-      background: linear-gradient(to right, #0072ff, #00c6ff);
-      padding: 12px;
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .marquee {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 15s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
+.logo img {
+  height: 60px;
+  width: auto;
+}
 /* Hover effect for links */
 a:hover {
     color: #FF6347; /* Change the link color when hovered (you can choose any color you like) */
@@ -110,6 +57,27 @@ a:active {
     color: #FF4500; /* Change color when the link is clicked */
 }
 
+.marquee-container {
+            width: 100%; 
+            overflow: hidden; /* Hide text outside the container */
+            background-color: #f0f0f0; /* Optional background */
+            padding: 10px 0;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap; /* Prevent text from wrapping to a new line */
+            animation: marquee 10s linear infinite; /* Animation properties */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%); /* Start off-screen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* End off-screen to the left */
+            }
+        }
          /* Centering the tab buttons container */
         .tabs {
             display: flex;
@@ -141,92 +109,123 @@ a:active {
       height: 90px;
       width: auto;
     }
-   .tab-ribbon {
-      background: #1e1e1e;
-      padding: 30px;
+.cyber-ribbon {
+      width: 100%;
+      background-color: #333333; /* Full-width dark grey ribbon */
+      padding: 20px 0;
+    }
+    .cyber-event-tabs {
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
+      background-color: #333333; /* Dark grey ribbon background */
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
-    .event-tab {
-      background: linear-gradient(135deg, #007cf0, #00dfd8);
-      color: white;
+    .cyber-tab {
+      background: linear-gradient(135deg, #e7e3e3, #8a8989);
+      color: #474545;
       border: none;
-      padding: 14px 28px;
-      border-radius: 40px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      border-radius: 15px;
+      padding: 20px 25px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
       cursor: pointer;
-      font-family: 'Orbitron', sans-serif;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .event-tab:hover {
-      transform: scale(1.05);
+      font-size: 1.2rem;
+      font-weight: bold;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-    .team-section {
-      background-color: #f9f9f9;
-      padding: 60px 20px;
-      text-align: center;
+
+    .cyber-tab:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(142, 148, 251, 0.5);
     }
 
-    .team-section h2 {
-      margin-bottom: 40px;
-      font-family: 'Orbitron', sans-serif;
+    .cyber-tab .hover-info {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 0 0 15px 15px;
+      font-size: 0.9rem;
     }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .cyber-tab:hover .hover-info {
+      display: block;
     }
 
-    .team-card {
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-    }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    text-align: center;
+  }
 
-    .team-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
+  .team-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 270px;
+  }
 
-    .team-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
+  .team-card:hover {
+    height: 320px;
+  }
 
-    .team-card h4 {
-      margin: 10px 0 5px;
-      font-size: 1.1rem;
-    }
+  .team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
 
-    .team-card p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #666;
-    }
+  .team-card h4 {
+    margin: 10px 0 4px;
+  }
 
-    .team-card a img {
-      height: 24px;
-      margin-top: 12px;
-      transition: transform 0.2s ease;
-    }
+  .team-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+  }
 
-    .team-card a img:hover {
-      transform: scale(1.1);
-    }
+  .bio {
+    opacity: 0;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+    transition: opacity 0.3s ease;
+    height: 0;
+  }
+
+  .team-card:hover .bio {
+    opacity: 1;
+    height: auto;
+  }
+
+  .team-card a img {
+    width: 24px;
+    height: 24px;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .team-card a img:hover {
+    transform: scale(1.1);
+  }
   .tab-ribbon {
   background: linear-gradient(to right, #f0f0f0, #fafafa);
   padding: 20px;
@@ -245,18 +244,25 @@ a:active {
 </head>
 <body>
     <div class="marquee-container">
-        <div class="marquee"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
+        <div class="marquee-text"><b>Equilibria 2025</b> submissions have closed, awaiting results!</div>
     </div>
     <div class="header">
     <div class="logo">
       <img src="Pareto Logo Round.png" alt="Pareto Logo">
     </div>
- <div class="tab-ribbon">
-    <button class = "event-tab" Pareto Summit 2025 </button>
+ <div class="cyber-ribbon">
+    <div class="cyber-event-tabs">
+      <div class="cyber-tab">
+        Pareto Summit 2025
         <div class="hover-info">The first edition of Pareto Summit kicked off with a G20 FMCBG committee simulation across 15th and 16th March, 2025 at the <a href="https://drive.google.com/drive/u/2/folders/1-EjI5-iPhgeMMewgBzYk2Frp-K2ehhnn" target="_blank"> <b> IIT Madras campus </b> </a>, with delegations from institutions across three states deliberating upon the stringent economic issues of today</div>
-      <button class="cyber-tab" Equilibria 2025 </button>
+      </div>
+      <div class="cyber-tab">
+        Equilibria 2025
         <div class="hover-info">An online nation-wide case study competition centered on economics, business, and analytics, Equilibria saw hundreds of academics from reputed institutions across the country participate in an event co-hosted by Pareto and the Economics Club, IISER Bhopal</div>
       </div>
+    </div>
+  </div>
+</div>
     <script>
         let openTabId = null;
 
@@ -369,13 +375,11 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
     </script>
-    <div class="section">
-    <div class="intro-text">
+    <div class = "intro-text">
   <p><b>Pareto</b> is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
 </div>
-</div>
  <h2 style="text-align:center;">Meet the Team!</h2>
-<div class="team-section">
+<div class="team-grid">
   <div class="team-card">
     <img src="arka.jpeg" alt="Arka Das">
     <h4>Arka Das</h4>
