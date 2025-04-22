@@ -36,6 +36,34 @@
     font-weight: 500; /* Make the link a bit bolder */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
 }
+.notifications-panel {
+  max-width: 300px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+}
+
+.notifications-panel h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+  color: #0072ff;
+}
+
+.notifications-content {
+  max-height: 150px;  /* Makes it scrollable if content overflows */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.notifications-content p {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #444;
+}
 
 /* Hover effect for links */
 a:hover {
@@ -368,6 +396,17 @@ function closeModal() {
     </script>
     <div class = "intro-text">
   <p><b>Pareto</b> is a student-run club dedicated to exploring the best of economics, analytics, and decision-making. We host workshops, seminars, case competitions, and a flagship MUN committee every year. You can find our <a href="https://www.instagram.com/pareto.dohss.iitm/" target="_blank"><b>Instagram</b></a> and <a href="https://www.linkedin.com/in/paretodohssiitm/" target="_blank"><b>LinkedIn</b></a> pages here to know more about what we've been up to. </p> 
+</div>
+<div class="notifications-panel">
+  <h3>📢 Notifications</h3>
+  <div class="notifications-content">
+    <p>Equilibria results will be announced next week.</p>
+    <p>New case competition opening soon!</p>
+    <p>Workshop registrations close in 2 days.</p>
+    <p>Join our LinkedIn group to stay updated.</p>
+    <p>Call for research submissions is open.</p>
+    <p>More updates coming soon...</p>
+  </div>
 </div>
  <h2 style="text-align:center;">Meet the Team!</h2>
 <div class="team-grid">
