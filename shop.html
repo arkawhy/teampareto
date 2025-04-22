@@ -12,7 +12,18 @@
       padding: 0;
       background: #f9f9f9;
     }
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
 
+.logo img {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+}
     header {
       background-color: #1e1e1e;
       color: white;
@@ -95,7 +106,9 @@
 <body>
 
 <header>P-Optimal 🛒</header>
-
+<a href="index.html" class="logo">
+  <img src="Pareto Logo Round.png" alt="Pareto Logo">
+</a>
 <div class="shop-container">
   <div class="product-card">
     <h3>Pareto Student Body (PSB) T-Shirt</h3>
