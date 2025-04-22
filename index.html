@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pareto, Economics Club at IIT Madras</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <style>
+       <style>
         /* Set the background color to off-white */
         
         body {
@@ -71,6 +71,11 @@ a:active {
       border-bottom: 1px solid #ddd;
     }
 
+    .logo img {
+      height: 105px; /* keep consistent height, auto width */
+      padding: 5px;
+    }
+
     .marquee-container {
       overflow: hidden;
       white-space: nowrap;
@@ -91,28 +96,11 @@ a:active {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
-.ribbon-header {
-  background-color: #1e1e1e;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 20px 40px;
-}
-
-/* Logo inside the ribbon */
-.logo-container img {
-  height: 105px;
-  background-color: #1e1e1e;
-}
-
-/* Tabs next to logo inside the ribbon */
-.tab-ribbon {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+.cyber-ribbon {
+      width: 100%;
+      background-color: #333333; /* Full-width dark grey ribbon */
+      padding: 20px 0;
+    }
     .cyber-event-tabs {
       display: flex;
       justify-content: center;
