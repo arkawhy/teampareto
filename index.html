@@ -35,17 +35,7 @@
     font-weight: 500; /* Make the link a bit bolder */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
 }
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-}
 
-.logo img {
-  height: 60px;
-  width: auto;
-}
 /* Hover effect for links */
 a:hover {
     color: #FF6347; /* Change the link color when hovered (you can choose any color you like) */
@@ -57,27 +47,7 @@ a:active {
     color: #FF4500; /* Change color when the link is clicked */
 }
 
-.marquee-container {
-            width: 100%; 
-            overflow: hidden; /* Hide text outside the container */
-            background-color: #f0f0f0; /* Optional background */
-            padding: 10px 0;
-        }
 
-        .marquee-text {
-            display: inline-block;
-            white-space: nowrap; /* Prevent text from wrapping to a new line */
-            animation: marquee 10s linear infinite; /* Animation properties */
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%); /* Start off-screen to the right */
-            }
-            100% {
-                transform: translateX(-100%); /* End off-screen to the left */
-            }
-        }
          /* Centering the tab buttons container */
         .tabs {
             display: flex;
@@ -91,23 +61,39 @@ a:active {
       font-family: 'Orbitron', sans-serif;
     }
 
-    .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 40px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-  .logo {
-      margin-bottom: 10px;
+   .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
     }
 
     .logo img {
-      height: 90px;
-      width: auto;
+      height: 60px; /* keep consistent height, auto width */
+      padding: 5px;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      padding: 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .marquee {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
     }
 .cyber-ribbon {
       width: 100%;
