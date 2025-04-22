@@ -437,20 +437,30 @@ function openModal(key) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
-  const pollButtons = document.querySelectorAll('.poll-option');
+   const pollButtons = document.querySelectorAll('.poll-option');
   const resultsBox = document.querySelector('.poll-results');
   const storedVote = localStorage.getItem('pollVote');
 
-  let votes = [8, 5, 12, 10]; // Starting vote counts for 4 options
+  let votes = [8, 5, 12, 10]; // Example starting votes
 
   function renderResults(userChoice = null) {
     const total = votes.reduce((a, b) => a + b, 0);
     resultsBox.innerHTML = '';
+
     votes.forEach((count, idx) => {
       const percent = total ? ((count / total) * 100).toFixed(1) : 0;
+      const label = pollButtons[idx].innerText;
       const isUser = userChoice == idx ? ' (Your vote)' : '';
-      resultsBox.innerHTML += `<p>${pollButtons[idx].innerText}: ${percent}%${isUser}</p>`;
+
+      resultsBox.innerHTML += `
+        <div class="poll-bar">
+          <div class="poll-fill" style="width: ${percent}%;">
+            ${label}: ${percent}%${isUser}
+          </div>
+        </div>
+      `;
     });
+
     resultsBox.style.display = 'block';
   }
 
@@ -466,8 +476,7 @@ function closeModal() {
       localStorage.setItem('pollVote', choice);
       renderResults(choice);
     });
-  });
-    </script>
+  });    </script>
     <div class = "intro-text">
   <h2> Pareto, Economics Club of DoHSS, IIT Madras </h2> 
 </div>
