@@ -150,7 +150,7 @@
     const summary = cart.map(c => `- ${c.item} ₹${c.price}`).join('%0A');
     const total = cart.reduce((sum, c) => sum + c.price, 0);
 
-    const mailto = `mailto:pareto.orders@gmail.com?subject=Pareto%20Shop%20Order&body=I'd%20like%20to%20order%3A%0A${summary}%0A%0ATotal%3A%20₹${total}%0AName%3A%20_________%0AEmail%3A%20_________`;
+    const mailto = `mailto:paretoeconomicsclubiitm@gmail.com?subject=Pareto%20Shop%20Order&body=I'd%20like%20to%20order%3A%0A${summary}%0A%0ATotal%3A%20₹${total}%0AName%3A%20_________%0AEmail%3A%20_________`;
 
     window.location.href = mailto;
   }
