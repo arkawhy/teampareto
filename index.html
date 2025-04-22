@@ -619,5 +619,47 @@ function closeModal() {
 </div>
   <footer id = "footer"> Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.
   </footer>
+  <script>
+  const pollButtons = document.querySelectorAll('.poll-option');
+  const resultsBox = document.querySelector('.poll-results');
+  const storedVote = localStorage.getItem('pollVote');
+
+  let votes = [8, 5, 12, 10]; // Example starting votes
+
+  function renderResults(userChoice = null) {
+    const total = votes.reduce((a, b) => a + b, 0);
+    resultsBox.innerHTML = '';
+
+    votes.forEach((count, idx) => {
+      const percent = total ? ((count / total) * 100).toFixed(1) : 0;
+      const label = pollButtons[idx].innerText;
+      const isUser = userChoice == idx ? ' (Your vote)' : '';
+
+      resultsBox.innerHTML += `
+        <div class="poll-bar">
+          <div class="poll-fill" style="width: ${percent}%;">
+            ${label}: ${percent}%${isUser}
+          </div>
+        </div>
+      `;
+    });
+
+    resultsBox.style.display = 'block';
+  }
+
+  if (storedVote !== null) {
+    renderResults(parseInt(storedVote));
+  }
+
+  pollButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (localStorage.getItem('pollVote') !== null) return;
+      const choice = parseInt(button.dataset.option);
+      votes[choice]++;
+      localStorage.setItem('pollVote', choice);
+      renderResults(choice);
+    });
+  });
+</script>
 </body>
 </html>
