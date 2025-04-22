@@ -75,6 +75,28 @@
 .poll-options button:nth-child(4) {
   background: #e91e63; /* pink */
 }
+.poll-bar {
+  background: #eee;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  height: 30px;
+}
+
+.poll-fill {
+  height: 100%;
+  color: white;
+  font-weight: 600;
+  line-height: 30px;
+  padding-left: 10px;
+  transition: width 0.4s ease;
+  border-radius: 8px;
+}
+
+.poll-fill:nth-child(1) { background: #4caf50; }
+.poll-fill:nth-child(2) { background: #2196f3; }
+.poll-fill:nth-child(3) { background: #ff9800; }
+.poll-fill:nth-child(4) { background: #e91e63; }
 
 /* Hover effect */
 .poll-options button:hover {
