@@ -603,46 +603,65 @@ function closeModal() {
   <footer id = "footer"> Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.
   </footer>
   <script>
-  const pollButtons = document.querySelectorAll('.poll-option');
-  const resultsBox = document.querySelector('.poll-results');
-  const storedVote = localStorage.getItem('pollVote');
+  const options = [
+    "Better farm output - More crops, more income, more spending.",
+    "Rural consumption boost - Higher demand for goods & services.",
+    "Inflation check - Eases pressure on food prices.",
+    "Growth cushion - Helps meet national GDP targets."
+  ];
 
-  let votes = [8, 5, 12, 10]; // Example starting votes
+  const colors = ['#4caf50', '#2196f3', '#ff9800', '#e91e63'];
+  let votes = [10, 7, 5, 8];
+  let voted = localStorage.getItem('paretoPulseVote');
 
-  function renderResults(userChoice = null) {
+  const pollBox = document.querySelector('.poll-panel');
+  const resultBox = document.createElement('div');
+  resultBox.classList.add('poll-results');
+
+  function showPollOptions() {
+    const optionsHTML = options.map((text, idx) => `
+      <button class="poll-option" style="background:${colors[idx]}" data-option="${idx}">
+        ${text}
+      </button>
+    `).join('');
+    pollBox.innerHTML += `<div id="poll-options">${optionsHTML}</div>`;
+  }
+  pollButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const choice = parseInt(button.dataset.option); // get which option was clicked
+    votes[choice]++; // update vote
+    localStorage.setItem('pollVote', choice); // store in browser
+    renderResults(choice); // display results
+  });
+});
+
+  function showResults(userVote) {
     const total = votes.reduce((a, b) => a + b, 0);
-    resultsBox.innerHTML = '';
-
-    votes.forEach((count, idx) => {
-      const percent = total ? ((count / total) * 100).toFixed(1) : 0;
-      const label = pollButtons[idx].innerText;
-      const isUser = userChoice == idx ? ' (Your vote)' : '';
-
-      resultsBox.innerHTML += `
-        <div class="poll-bar">
-          <div class="poll-fill" style="width: ${percent}%;">
-            ${label}: ${percent}%${isUser}
-          </div>
+    resultBox.innerHTML = options.map((opt, idx) => {
+      const percent = ((votes[idx] / total) * 100).toFixed(1);
+      return `
+        <div class="poll-bar" style="background:${colors[idx]}">
+          ${opt}<br><strong>${percent}%${userVote == idx ? ' (Your vote)' : ''}</strong>
         </div>
       `;
-    });
-
-    resultsBox.style.display = 'block';
+    }).join('');
+    pollBox.appendChild(resultBox);
   }
 
-  if (storedVote !== null) {
-    renderResults(parseInt(storedVote));
-  }
-
-  pollButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (localStorage.getItem('pollVote') !== null) return;
-      const choice = parseInt(button.dataset.option);
-      votes[choice]++;
-      localStorage.setItem('pollVote', choice);
-      renderResults(choice);
+  if (!voted) {
+    showPollOptions();
+    document.querySelector('#poll-options').addEventListener('click', e => {
+      if (e.target.classList.contains('poll-btn')) {
+        const id = parseInt(e.target.dataset.id);
+        votes[id]++;
+        localStorage.setItem('paretoPulseVote', id);
+        document.getElementById('poll-options').remove();
+        showResults(id);
+      }
     });
-  });
+  } else {
+    showResults(parseInt(voted));
+  }
 </script>
 </body>
 </html>
