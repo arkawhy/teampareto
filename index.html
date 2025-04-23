@@ -625,15 +625,19 @@ function closeModal() {
       </button>
     `).join('');
     pollBox.innerHTML += `<div id="poll-options">${optionsHTML}</div>`;
+
+    // Now attach listeners to the buttons (after they exist)
+    const pollButtons = document.querySelectorAll('.poll-option');
+    pollButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const choice = parseInt(button.dataset.option);
+        votes[choice]++;
+        localStorage.setItem('paretoPulseVote', choice);
+        document.getElementById('poll-options').remove();
+        showResults(choice);
+      });
+    });
   }
-  pollButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const choice = parseInt(button.dataset.option); // get which option was clicked
-    votes[choice]++; // update vote
-    localStorage.setItem('pollVote', choice); // store in browser
-    renderResults(choice); // display results
-  });
-});
 
   function showResults(userVote) {
     const total = votes.reduce((a, b) => a + b, 0);
@@ -650,15 +654,6 @@ function closeModal() {
 
   if (!voted) {
     showPollOptions();
-    document.querySelector('#poll-options').addEventListener('click', e => {
-      if (e.target.classList.contains('poll-btn')) {
-        const id = parseInt(e.target.dataset.id);
-        votes[id]++;
-        localStorage.setItem('paretoPulseVote', id);
-        document.getElementById('poll-options').remove();
-        showResults(id);
-      }
-    });
   } else {
     showResults(parseInt(voted));
   }
