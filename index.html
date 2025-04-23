@@ -603,6 +603,7 @@ function closeModal() {
   <footer id = "footer"> Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.
   </footer>
   <script>
+>
   const options = [
     "Better farm output - More crops, more income, more spending.",
     "Rural consumption boost - Higher demand for goods & services.",
@@ -615,25 +616,25 @@ function closeModal() {
   let voted = localStorage.getItem('paretoPulseVote');
 
   const pollBox = document.querySelector('.poll-panel');
-  const resultBox = document.createElement('div');
-  resultBox.classList.add('poll-results');
 
   function showPollOptions() {
-    const optionsHTML = options.map((text, idx) => `
+    const pollContent = document.createElement('div');
+    pollContent.id = "poll-options";
+    pollContent.innerHTML = options.map((text, idx) => `
       <button class="poll-option" style="background:${colors[idx]}" data-option="${idx}">
         ${text}
       </button>
     `).join('');
-    pollBox.innerHTML += `<div id="poll-options">${optionsHTML}</div>`;
 
-    // Now attach listeners to the buttons (after they exist)
-    const pollButtons = document.querySelectorAll('.poll-option');
-    pollButtons.forEach(button => {
+    pollBox.appendChild(pollContent);
+
+    // Add event listener after buttons are rendered
+    document.querySelectorAll('.poll-option').forEach(button => {
       button.addEventListener('click', () => {
         const choice = parseInt(button.dataset.option);
         votes[choice]++;
         localStorage.setItem('paretoPulseVote', choice);
-        document.getElementById('poll-options').remove();
+        document.getElementById('poll-options').remove(); // remove buttons
         showResults(choice);
       });
     });
@@ -641,6 +642,9 @@ function closeModal() {
 
   function showResults(userVote) {
     const total = votes.reduce((a, b) => a + b, 0);
+    const resultBox = document.createElement('div');
+    resultBox.classList.add('poll-results');
+
     resultBox.innerHTML = options.map((opt, idx) => {
       const percent = ((votes[idx] / total) * 100).toFixed(1);
       return `
@@ -649,6 +653,7 @@ function closeModal() {
         </div>
       `;
     }).join('');
+
     pollBox.appendChild(resultBox);
   }
 
@@ -656,7 +661,6 @@ function closeModal() {
     showPollOptions();
   } else {
     showResults(parseInt(voted));
-  }
-</script>
+  }t>
 </body>
 </html>
