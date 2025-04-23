@@ -61,6 +61,28 @@
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.poll-option {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+}
+
+.poll-bar {
+  background: #ccc;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
 /* Colorful button variations */
 .poll-options button:nth-child(1) {
@@ -603,8 +625,7 @@ function closeModal() {
   <footer id = "footer"> Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.
   </footer>
   <script>
->
-  const options = [
+ const options = [
     "Better farm output - More crops, more income, more spending.",
     "Rural consumption boost - Higher demand for goods & services.",
     "Inflation check - Eases pressure on food prices.",
@@ -613,54 +634,55 @@ function closeModal() {
 
   const colors = ['#4caf50', '#2196f3', '#ff9800', '#e91e63'];
   let votes = [10, 7, 5, 8];
-  let voted = localStorage.getItem('paretoPulseVote');
-
   const pollBox = document.querySelector('.poll-panel');
+  const userVote = localStorage.getItem('paretoPulseVote');
 
-  function showPollOptions() {
-    const pollContent = document.createElement('div');
-    pollContent.id = "poll-options";
-    pollContent.innerHTML = options.map((text, idx) => `
-      <button class="poll-option" style="background:${colors[idx]}" data-option="${idx}">
-        ${text}
-      </button>
-    `).join('');
+  function renderPoll() {
+    pollBox.innerHTML = `
+      <h3>📊 Pareto Pulse</h3>
+      <p>In today’s economy, how does a good monsoon matter most?</p>
+      <div class="poll-content"></div>
+    `;
 
-    pollBox.appendChild(pollContent);
+    const pollContent = pollBox.querySelector('.poll-content');
 
-    // Add event listener after buttons are rendered
-    document.querySelectorAll('.poll-option').forEach(button => {
-      button.addEventListener('click', () => {
-        const choice = parseInt(button.dataset.option);
-        votes[choice]++;
-        localStorage.setItem('paretoPulseVote', choice);
-        document.getElementById('poll-options').remove(); // remove buttons
-        showResults(choice);
+    if (userVote === null) {
+      // Show vote buttons
+      options.forEach((option, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'poll-option';
+        btn.style.backgroundColor = colors[idx];
+        btn.textContent = option;
+        btn.dataset.option = idx;
+
+        btn.addEventListener('click', () => {
+          const selected = parseInt(btn.dataset.option);
+          votes[selected]++;
+          localStorage.setItem('paretoPulseVote', selected);
+          renderPoll(); // rerender with results
+        });
+
+        pollContent.appendChild(btn);
       });
-    });
+
+    } else {
+      // Show results
+      const total = votes.reduce((a, b) => a + b, 0);
+      options.forEach((option, idx) => {
+        const percent = ((votes[idx] / total) * 100).toFixed(1);
+        const bar = document.createElement('div');
+        bar.className = 'poll-bar';
+        bar.style.backgroundColor = colors[idx];
+        bar.innerHTML = `
+          ${option}<br>
+          <strong>${percent}%${parseInt(userVote) === idx ? ' (Your vote)' : ''}</strong>
+        `;
+        pollContent.appendChild(bar);
+      });
+    }
   }
 
-  function showResults(userVote) {
-    const total = votes.reduce((a, b) => a + b, 0);
-    const resultBox = document.createElement('div');
-    resultBox.classList.add('poll-results');
-
-    resultBox.innerHTML = options.map((opt, idx) => {
-      const percent = ((votes[idx] / total) * 100).toFixed(1);
-      return `
-        <div class="poll-bar" style="background:${colors[idx]}">
-          ${opt}<br><strong>${percent}%${userVote == idx ? ' (Your vote)' : ''}</strong>
-        </div>
-      `;
-    }).join('');
-
-    pollBox.appendChild(resultBox);
-  }
-
-  if (!voted) {
-    showPollOptions();
-  } else {
-    showResults(parseInt(voted));
+  renderPoll();
   </script>
 </body>
 </html>
