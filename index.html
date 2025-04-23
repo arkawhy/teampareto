@@ -75,13 +75,24 @@
 }
 
 .poll-bar {
-  background: #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px;
   margin: 10px 0;
   border-radius: 8px;
   color: white;
   font-weight: bold;
   font-size: 0.9rem;
+}
+
+.poll-bar-text {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.poll-percent {
+  white-space: nowrap;
 }
 
 /* Colorful button variations */
@@ -481,6 +492,64 @@ function openModal(key) {
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
+  <script>
+ const options = [
+    "Better farm output - More crops, more income, more spending.",
+    "Rural consumption boost - Higher demand for goods & services.",
+    "Inflation check - Eases pressure on food prices.",
+    "Growth cushion - Helps meet national GDP targets."
+  ];
+
+  const colors = ['#4caf50', '#2196f3', '#ff9800', '#e91e63'];
+  let votes = [10, 7, 5, 8]; // static votes for demo
+
+  const pollBox = document.querySelector('.poll-panel');
+
+  function renderPoll() {
+    const voted = localStorage.getItem('paretoPulseVote');
+    pollBox.innerHTML = `
+      <h3>📊 Pareto Pulse</h3>
+      <p class="poll-question">In today’s economy, how does a good monsoon matter most?</p>
+      <div class="poll-content"></div>
+    `;
+
+    const content = pollBox.querySelector('.poll-content');
+
+    if (voted === null) {
+      options.forEach((text, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'poll-option';
+        btn.style.background = colors[idx];
+        btn.textContent = text;
+        btn.dataset.idx = idx;
+
+        btn.addEventListener('click', () => {
+          votes[idx]++;
+          localStorage.setItem('paretoPulseVote', idx);
+          renderPoll(); // re-render with results
+        });
+
+        content.appendChild(btn);
+      });
+
+    } else {
+      const total = votes.reduce((a, b) => a + b, 0);
+      options.forEach((text, idx) => {
+        const percent = ((votes[idx] / total) * 100).toFixed(1);
+        const result = document.createElement('div');
+        result.className = 'poll-bar';
+        result.style.background = colors[idx];
+        result.innerHTML = `
+          <div class="poll-bar-text">${text}</div>
+          <div class="poll-percent">${percent}%${parseInt(voted) === idx ? ' (Your vote)' : ''}</div>
+        `;
+        content.appendChild(result);
+      });
+    }
+  }
+
+  renderPoll();
+  </script>
    </script>
     <div class = "intro-text">
   <h2> Pareto, Economics Club of DoHSS, IIT Madras </h2> 
@@ -624,65 +693,5 @@ function closeModal() {
 </div>
   <footer id = "footer"> Put together by the very inexperienced, non-tech people at <b>Pareto</b>, IIT Madras.
   </footer>
-  <script>
- const options = [
-    "Better farm output - More crops, more income, more spending.",
-    "Rural consumption boost - Higher demand for goods & services.",
-    "Inflation check - Eases pressure on food prices.",
-    "Growth cushion - Helps meet national GDP targets."
-  ];
-
-  const colors = ['#4caf50', '#2196f3', '#ff9800', '#e91e63'];
-  let votes = [10, 7, 5, 8];
-  const pollBox = document.querySelector('.poll-panel');
-  const userVote = localStorage.getItem('paretoPulseVote');
-
-  function renderPoll() {
-    pollBox.innerHTML = `
-      <h3>📊 Pareto Pulse</h3>
-      <p>In today’s economy, how does a good monsoon matter most?</p>
-      <div class="poll-content"></div>
-    `;
-
-    const pollContent = pollBox.querySelector('.poll-content');
-
-    if (userVote === null) {
-      // Show vote buttons
-      options.forEach((option, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'poll-option';
-        btn.style.backgroundColor = colors[idx];
-        btn.textContent = option;
-        btn.dataset.option = idx;
-
-        btn.addEventListener('click', () => {
-          const selected = parseInt(btn.dataset.option);
-          votes[selected]++;
-          localStorage.setItem('paretoPulseVote', selected);
-          renderPoll(); // rerender with results
-        });
-
-        pollContent.appendChild(btn);
-      });
-
-    } else {
-      // Show results
-      const total = votes.reduce((a, b) => a + b, 0);
-      options.forEach((option, idx) => {
-        const percent = ((votes[idx] / total) * 100).toFixed(1);
-        const bar = document.createElement('div');
-        bar.className = 'poll-bar';
-        bar.style.backgroundColor = colors[idx];
-        bar.innerHTML = `
-          ${option}<br>
-          <strong>${percent}%${parseInt(userVote) === idx ? ' (Your vote)' : ''}</strong>
-        `;
-        pollContent.appendChild(bar);
-      });
-    }
-  }
-
-  renderPoll();
-  </script>
 </body>
 </html>
